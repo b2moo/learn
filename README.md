@@ -28,7 +28,8 @@ is with the pip3 installer by typing:
 Reproducing the results from the article
 ----------------------------------------
 
-In order to generate the file `plots.pdf`, please run
+In order to generate the file `plots.pdf`, please run:
+
 	experiments.sh all
 
 The keyword `all` can be replaced by one of the 6 benchmarks below, a second
@@ -38,6 +39,7 @@ All results can be found in the `generated` and compared to the `reference_data`
 data folder used in the article.
 They can be erased by using the `clean` keyword.
 Finally, they can be visualized at any time by issuing:
+
 	pdflatex plots.tex
 	evince plots.pdf
 
