@@ -59,7 +59,7 @@ We have 6 types of benchmarks available.
 
 On Linux, for instance, the prototype can be started using the command
 
-    ./python3 maximal_cubes.py dia-r max-o 50
+    python3 maximal_cubes.py dia-r max-o 50
          
 
 The prototype outputs the total time needed to solve the benchmark at the end.
@@ -73,4 +73,4 @@ We have 1) Benchmark 2) Parameter K 3) Parameter D
 
 On Linux, for instance, the prototype can be started using the command
 
-    ./python mondec.py dia-r 50
+    python3 mondec.py dia-r 50
