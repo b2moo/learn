@@ -25,6 +25,24 @@ is with the pip3 installer by typing:
 
         pip3 install z3-solver
 
+Reproducing the results from the article
+----------------------------------------
+
+In order to generate the file `plots.pdf`, please run
+	experiments.sh all
+
+The keyword `all` can be replaced by one of the 6 benchmarks below, a second
+optional parameter can be used to specify K or D (depending on the considered
+benchmark).
+All results can be found in the `generated` and compared to the `reference_data`
+data folder used in the article.
+They can be erased by using the `clean` keyword.
+Finally, they can be visualized at any time by issuing:
+	pdflatex plots.tex
+	evince plots.pdf
+
+As large parameter values could take time to evaluate, we recommend evaluating
+each benchmark one by one, and stop the procedure when too much time is taken.
 
 Running the prototype
 ---------------------
@@ -74,3 +92,4 @@ We have 1) Benchmark 2) Parameter K 3) Parameter D
 On Linux, for instance, the prototype can be started using the command
 
     python3 mondec.py dia-r 50
+
