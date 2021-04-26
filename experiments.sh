@@ -7,9 +7,8 @@
 KPARAMS="50 100 150 200 250 300 350 400 450 500"
 DPARAMS="3 4 5 10 50 100 200"
 
-# TMP
-#KPARAMS="50"
-#DPARAMS="3"
+# 5 min
+TIMEOUT=300
 
 # dia-r (This is K Diagonal Restricted in the paper)
 # dia-u (This is K Diagonal Unrestricted in the paper)
@@ -38,6 +37,11 @@ clean() {
 # Run experiment and fill generated file
 # 1 = benchmark name, 2 = parameter
 run_exp() {
+    if grep -q "^$2 " generated/$1.dat; then
+        echo "  Already done, skipping;"
+        return
+    fi
+    # No Param ? Iterate on all of them
     if [ -z $2 ]; then
         if [ "$1" = "k-cubes" ]; then
             params="$DPARAMS"
@@ -50,6 +54,8 @@ run_exp() {
         done;
         return
     fi
+    
+    # choose between d and k, and the tools to iterate on
     d=2
     k=10
     if [ "$1" = "mondec" ]; then
@@ -65,6 +71,7 @@ run_exp() {
         k="$2"
     fi
 
+    
     out="$2"
     for tool in $tools; do
         echo -n "   Running $tool on $1($k,$d) ..."
@@ -78,10 +85,13 @@ run_exp() {
 
 run_tool() {
     if [ "$1" = "mondec" ]; then
-        python3 ./mondec.py $2 $3 $4
+        timeout $TIMEOUT python3 ./mondec.py $2 $3 $4
     else
         # Benchmark first
-        python3 ./maximal_cubes.py $2 $1 $3 $4
+        timeout $TIMEOUT python3 ./maximal_cubes.py $2 $1 $3 $4
+    fi
+    if [ "$?" -eq 124 ]; then
+        echo "Total time needed: $TIMEOUT"
     fi
 }
 
