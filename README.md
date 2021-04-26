@@ -23,14 +23,14 @@ Prerequisites
 The prototype requires Microsoft Z3 (https://github.com/Z3Prover/z3)for python and python to run. The easiest way to obtain z3 for python
 is with the pip3 installer by typing:
 
-        pip3 install z3-solver
+	pip3 install z3-solver
 
 Reproducing the results from the article
 ----------------------------------------
 
 In order to generate the file `plots.pdf`, please run:
 
-	experiments.sh all
+	./experiments.sh all
 
 The keyword `all` can be replaced by one of the 6 benchmarks below, a second
 optional parameter can be used to specify K or D (depending on the considered
