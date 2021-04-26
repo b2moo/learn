@@ -25,7 +25,7 @@ clean() {
   for bench in $BENCHMARKS
   do
     echo "clean $bench"
-    cat reference_data/$bench.dat | head -n 1 > generated/$bench.dat
+    cat reference_data/$bench.dat | head -n 2 > generated/$bench.dat
   done
 }
 
