@@ -26,6 +26,10 @@ is with the pip3 installer by typing:
 
 	pip3 install z3-solver
 
+To reproduce the benchmark plot (Fig. 7 in the paper), LaTeX is required and can be installed on debian/ubuntu as follows:
+
+	sudo apt-get install texlive-base texlive-pictures
+
 Reproducing the results from the article
 ----------------------------------------
 
