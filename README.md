@@ -20,7 +20,8 @@ This file describes how to compile and run the learner.
 Prerequisites
 -------------
 
-The prototype requires Microsoft Z3 (https://github.com/Z3Prover/z3)for python and python to run. The easiest way to obtain z3 for python
+The prototype requires Microsoft Z3 (https://github.com/Z3Prover/z3)
+for python and python to run. The easiest way to obtain z3 for python
 is with the pip3 installer by typing:
 
 	pip3 install z3-solver
@@ -44,7 +45,10 @@ Finally, they can be visualized at any time by issuing:
 	evince plots.pdf
 
 As large parameter values could take time to evaluate, we recommend evaluating
-each benchmark one by one, and stop the procedure when too much time is taken.
+each benchmark one by one (see list below),
+and stop the procedure when too much time is taken.
+The list of benchmarks, timeout value and considered tools and parameter values
+can be edited in the constants of `experiments.sh`.
 
 Running the prototype
 ---------------------
@@ -93,5 +97,5 @@ We have 1) Benchmark 2) Parameter K 3) Parameter D
 
 On Linux, for instance, the prototype can be started using the command
 
-    python3 mondec.py dia-r 50
+	python3 mondec.py dia-r 50
 
