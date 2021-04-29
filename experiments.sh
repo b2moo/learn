@@ -76,7 +76,13 @@ run_exp() {
     for tool in $tools; do
         echo -n "   Running $tool on $1($k,$d) ..."
         res=$(run_tool $tool $1 $k $d | parseout)
-        echo "done: ${res}s"
+        if [ -z "$res" ]; then
+            echo "failed"
+        elif [ "$res" = "$TIMEOUT" ]; then
+            echo "timeout (${TIMEOUT}s)"
+        else
+            echo "done: ${res}s"
+        fi
         out="$out     $res"
     done
     echo "$out" >> generated/$1.dat
